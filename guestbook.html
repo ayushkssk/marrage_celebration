@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Book - Our Wedding</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/guestbook.css">
+</head>
+<body>
+    <!-- Decorative SVG Patterns -->
+    <div class="pattern-overlay">
+        <svg width="100%" height="100%">
+            <defs>
+                <pattern id="hearts" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M20 10 C20 5, 15 0, 10 0 S0 5, 0 10 C0 20, 20 25, 20 35" fill="none" stroke="rgba(255,105,180,0.1)"/>
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hearts)"/>
+        </svg>
+    </div>
+
+    <div class="guestbook-container">
+        <h1 class="gradient-text floating-element">Guest Book</h1>
+        <p class="subtitle fade-scale">Share your wishes and memories with us</p>
+
+        <!-- Message Form -->
+        <div class="message-form-container floating-element">
+            <form id="messageForm" class="message-form">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="guestName" required>
+                    <label for="guestName">Your Name</label>
+                </div>
+                
+                <div class="form-floating mb-3">
+                    <textarea class="form-control" id="message" style="height: 100px" required></textarea>
+                    <label for="message">Your Message</label>
+                </div>
+
+                <div class="image-upload-container">
+                    <label for="imageUpload" class="image-upload-label">
+                        <i class="fas fa-camera"></i>
+                        <span>Add Photo</span>
+                    </label>
+                    <input type="file" id="imageUpload" accept="image/*" hidden>
+                    <div id="imagePreview" class="image-preview"></div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <span>Share Message</span>
+                    <svg class="submit-icon" viewBox="0 0 24 24">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+
+        <!-- Messages Display -->
+        <div class="messages-container">
+            <div class="messages-grid" id="messagesGrid">
+                <!-- Messages will be dynamically added here -->
+            </div>
+
+            <!-- Load More Button -->
+            <button id="loadMoreBtn" class="load-more-btn">
+                Load More Messages
+                <div class="button-loader"></div>
+            </button>
+        </div>
+    </div>
+
+    <!-- Message Template -->
+    <template id="messageTemplate">
+        <div class="message-card">
+            <div class="message-header">
+                <div class="guest-avatar">
+                    <!-- First letter of guest name will be added here -->
+                </div>
+                <div class="guest-info">
+                    <h3 class="guest-name"></h3>
+                    <span class="message-date"></span>
+                </div>
+            </div>
+            <div class="message-content"></div>
+            <div class="message-image"></div>
+            <div class="message-actions">
+                <button class="like-btn">
+                    <i class="fas fa-heart"></i>
+                    <span class="like-count">0</span>
+                </button>
+                <button class="share-btn">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Share Modal -->
+    <div class="modal fade" id="shareModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Share This Message</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="share-buttons">
+                        <button class="share-facebook">
+                            <i class="fab fa-facebook"></i>
+                        </button>
+                        <button class="share-twitter">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+                        <button class="share-whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                        <button class="share-copy">
+                            <i class="fas fa-link"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"></script>
+    <script src="assets/js/guestbook.js"></script>
+</body>
+</html> 

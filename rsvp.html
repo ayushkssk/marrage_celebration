@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP - Our Wedding</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/rsvp.css">
+</head>
+<body>
+    <!-- Decorative SVG Background -->
+    <div class="svg-background">
+        <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,0 L100,0 L100,100 L0,100 Z" fill="url(#gradient-bg)"/>
+            <defs>
+                <linearGradient id="gradient-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:var(--primary-rose);stop-opacity:0.1"/>
+                    <stop offset="100%" style="stop-color:var(--primary-gold);stop-opacity:0.1"/>
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <div class="rsvp-container">
+        <div class="floating-element">
+            <h1 class="gradient-text">RSVP</h1>
+            <p class="subtitle">We'd be delighted to have you join us</p>
+        </div>
+
+        <form id="rsvpForm" class="rsvp-form fade-scale">
+            <!-- Guest Information -->
+            <div class="form-section active" data-step="1">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="guestName" required>
+                    <label for="guestName">Your Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="guestEmail" required>
+                    <label for="guestEmail">Email Address</label>
+                </div>
+                <button type="button" class="btn-next">Next <i class="fas fa-arrow-right"></i></button>
+            </div>
+
+            <!-- Attendance -->
+            <div class="form-section" data-step="2">
+                <div class="attendance-choice">
+                    <button type="button" class="attendance-btn" data-attendance="yes">
+                        <svg class="check-icon" viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
+                        Joyfully Accept
+                    </button>
+                    <button type="button" class="attendance-btn" data-attendance="no">
+                        <svg class="cross-icon" viewBox="0 0 24 24">
+                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/>
+                        </svg>
+                        Regretfully Decline
+                    </button>
+                </div>
+                <div class="nav-buttons">
+                    <button type="button" class="btn-prev">Previous</button>
+                    <button type="button" class="btn-next">Next</button>
+                </div>
+            </div>
+
+            <!-- Additional Details -->
+            <div class="form-section" data-step="3">
+                <div class="guest-count-wrapper">
+                    <label>Number of Guests</label>
+                    <div class="guest-counter">
+                        <button type="button" class="counter-btn" data-action="decrease">-</button>
+                        <input type="number" id="guestCount" value="1" min="1" max="5" readonly>
+                        <button type="button" class="counter-btn" data-action="increase">+</button>
+                    </div>
+                </div>
+
+                <div class="dietary-preferences">
+                    <label>Dietary Preferences</label>
+                    <div class="preference-options">
+                        <label class="preference-option">
+                            <input type="checkbox" name="dietary" value="vegetarian">
+                            <span class="checkbox-custom"></span>
+                            Vegetarian
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="dietary" value="vegan">
+                            <span class="checkbox-custom"></span>
+                            Vegan
+                        </label>
+                        <label class="preference-option">
+                            <input type="checkbox" name="dietary" value="gluten-free">
+                            <span class="checkbox-custom"></span>
+                            Gluten-Free
+                        </label>
+                    </div>
+                </div>
+
+                <div class="nav-buttons">
+                    <button type="button" class="btn-prev">Previous</button>
+                    <button type="submit" class="btn-submit">Send RSVP</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Confirmation Modal -->
+        <div class="modal fade" id="confirmationModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        <div class="confirmation-animation">
+                            <!-- SVG Animation will be inserted here via JavaScript -->
+                        </div>
+                        <h3 class="gradient-text">Thank You!</h3>
+                        <p class="confirmation-message"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+    <script src="assets/js/rsvp.js"></script>
+</body>
+</html> 

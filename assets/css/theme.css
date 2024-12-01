@@ -1,0 +1,70 @@
+:root {
+    /* Primary Palette */
+    --primary-rose: #FF69B4;
+    --primary-gold: #FFD700;
+    --primary-sage: #9DC183;
+    
+    /* Gradient Palettes */
+    --gradient-romantic: linear-gradient(135deg, #FF69B4, #FFB6C1);
+    --gradient-sunset: linear-gradient(45deg, #FFD700, #FFA07A);
+    --gradient-nature: linear-gradient(to right, #9DC183, #C9E4CA);
+    
+    /* Neutral Colors */
+    --neutral-100: #FFFFFF;
+    --neutral-200: #F8F9FA;
+    --neutral-300: #E9ECEF;
+    --neutral-400: #DEE2E6;
+    --neutral-500: #ADB5BD;
+    --neutral-600: #6C757D;
+    --neutral-700: #495057;
+    --neutral-800: #343A40;
+    --neutral-900: #212529;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    
+    /* Typography */
+    --font-primary: 'Cormorant Garamond', serif;
+    --font-secondary: 'Montserrat', sans-serif;
+    --font-decorative: 'Great Vibes', cursive;
+}
+
+/* Global Animations */
+@keyframes floatIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Utility Classes */
+.gradient-text {
+    background: var(--gradient-romantic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.floating-element {
+    animation: floatIn 1s ease-out forwards;
+}
+
+.fade-scale {
+    animation: fadeScale 0.8s ease-out forwards;
+} 

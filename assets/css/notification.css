@@ -1,0 +1,315 @@
+/* Updated Notification Banner Styles */
+.notification-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary-rose), var(--primary-gold));
+    color: white;
+    z-index: 2000;
+    padding: 12px 20px;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
+}
+
+/* Adjust main content and navbar positioning */
+body {
+    padding-top: calc(56px + 60px); /* navbar height + banner height */
+}
+
+.navbar {
+    top: 60px; /* Height of the notification banner */
+    transition: top 0.5s ease;
+}
+
+/* When banner is hidden, adjust navbar position */
+.notification-banner.hidden + .navbar {
+    top: 0;
+}
+
+.notification-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.notification-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.highlight {
+    font-family: var(--font-decorative);
+    font-size: 1.1rem;
+    animation: sparkle 1.5s infinite;
+}
+
+.notification-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.whatsapp-btn,
+.build-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2001; /* Ensure buttons are clickable */
+}
+
+.whatsapp-btn {
+    background: #25D366;
+    color: white;
+}
+
+.build-btn {
+    background: white;
+    color: var(--primary-rose);
+}
+
+.whatsapp-btn:hover,
+.build-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Animation */
+@keyframes sparkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding-top: calc(56px + 40px); /* navbar height + compact banner height */
+    }
+
+    .navbar {
+        top: 40px; /* Reduced banner height */
+    }
+
+    .notification-banner {
+        padding: 8px 15px;
+        height: auto;
+    }
+
+    .notification-content {
+        flex-direction: row; /* Keep it in one line */
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+        gap: 10px;
+    }
+
+    .notification-text {
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .highlight {
+        font-size: 0.95rem;
+        display: inline; /* Keep it in line */
+    }
+
+    .notification-actions {
+        flex-shrink: 0;
+        gap: 8px;
+    }
+
+    .whatsapp-btn,
+    .build-btn {
+        padding: 5px 10px;
+        font-size: 0.85rem;
+    }
+
+    /* Hide text on very small screens, show only icons */
+    @media (max-width: 480px) {
+        .notification-text span:not(.highlight) {
+            display: none;
+        }
+
+        .whatsapp-btn span,
+        .build-btn span {
+            display: none;
+        }
+
+        .whatsapp-btn i,
+        .build-btn i {
+            margin: 0;
+        }
+    }
+}
+
+.notification-minimize-btn {
+    background: none;
+    border: none;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2001; /* Ensure button is clickable */
+}
+
+.notification-minimize-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.notification-minimize-btn svg {
+    fill: currentColor;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .notification-banner {
+        padding: 6px 12px;
+        height: 40px; /* Fixed height for mobile */
+    }
+
+    .notification-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    /* Sliding text for mobile */
+    .notification-text {
+        flex: 1;
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+        padding-right: 10px;
+    }
+
+    .notification-text-slider {
+        display: flex;
+        animation: slideText 15s linear infinite;
+        white-space: nowrap;
+        align-items: center;
+    }
+
+    .notification-text-slider:hover {
+        animation-play-state: paused;
+    }
+
+    /* Compact buttons for mobile */
+    .notification-actions {
+        display: flex;
+        gap: 8px;
+        margin-left: auto;
+    }
+
+    .whatsapp-btn,
+    .build-btn {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    /* Swipe indicator */
+    .swipe-indicator {
+        position: absolute;
+        bottom: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 1px;
+    }
+
+    /* Progress bar for auto-hide */
+    .auto-hide-progress {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.5);
+        width: 100%;
+        transform-origin: left;
+    }
+
+    /* Expanded state for mobile */
+    .notification-banner.expanded {
+        height: auto;
+        padding: 12px;
+    }
+
+    .notification-banner.expanded .notification-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .notification-banner.expanded .notification-text-slider {
+        animation: none;
+        white-space: normal;
+    }
+}
+
+/* Animations */
+@keyframes slideText {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes autoHideProgress {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0); }
+}
+
+/* Touch Feedback */
+@media (hover: none) {
+    .notification-banner {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .whatsapp-btn:active,
+    .build-btn:active {
+        transform: scale(0.95);
+    }
+}
+
+/* Ultra Compact Mode for very small screens */
+@media (max-width: 360px) {
+    .notification-banner {
+        height: 32px;
+    }
+
+    .whatsapp-btn,
+    .build-btn {
+        padding: 3px 6px;
+    }
+
+    .notification-text {
+        font-size: 0.75rem;
+    }
+}

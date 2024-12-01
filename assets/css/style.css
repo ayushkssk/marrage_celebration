@@ -1,0 +1,374 @@
+/* Root Variables */
+:root {
+    /* Colors from theme.css */
+    /* Spacing */
+    --header-height: 80px;
+    --section-spacing: 100px;
+    /* Transitions */
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.5s ease;
+    --transition-slow: 0.8s ease;
+}
+
+/* Global Styles */
+body {
+    font-family: var(--font-secondary);
+    color: var(--neutral-800);
+    overflow-x: hidden;
+    background: var(--neutral-100);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-family: var(--font-decorative);
+}
+
+/* Navigation */
+.navbar {
+    padding: 1rem 0;
+    transition: all var(--transition-fast);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.navbar.scrolled {
+    padding: 0.5rem 0;
+    box-shadow: var(--shadow-md);
+}
+
+.navbar-brand {
+    font-family: var(--font-decorative);
+    font-size: 1.8rem;
+    color: var(--primary-rose);
+}
+
+.nav-link {
+    position: relative;
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    color: var(--neutral-700);
+    transition: color var(--transition-fast);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-romantic);
+    transition: all var(--transition-fast);
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('../images/hero-bg.jpg') center/cover;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-decorative);
+}
+
+.wedding-date {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-family: var(--font-primary);
+}
+
+/* Countdown */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 1.5rem;
+    border-radius: 15px;
+    min-width: 100px;
+    box-shadow: var(--shadow-lg);
+}
+
+.countdown-item span:first-child {
+    font-size: 2.5rem;
+    color: var(--primary-rose);
+    font-weight: 600;
+    display: block;
+}
+
+.countdown-item span:last-child {
+    font-size: 0.9rem;
+    color: var(--neutral-600);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Story Section */
+.story-section {
+    padding: var(--section-spacing) 0;
+    background: var(--neutral-200);
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: var(--primary-rose);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    padding: 2rem;
+    position: relative;
+    width: 50%;
+    margin-bottom: 2rem;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 4rem;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 4rem;
+}
+
+/* Quick Links */
+.quick-links {
+    padding: var(--section-spacing) 0;
+}
+
+.quick-link-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all var(--transition-medium);
+    box-shadow: var(--shadow-md);
+}
+
+.quick-link-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.quick-link-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: var(--gradient-romantic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Footer */
+.footer {
+    background: var(--neutral-800);
+    color: white;
+    padding: 4rem 0 2rem;
+}
+
+.footer h3 {
+    font-family: var(--font-decorative);
+    font-size: 2rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gradient-romantic);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.footer-bottom {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--neutral-500);
+}
+
+/* Remove floating decorations */
+.floating-hearts,
+.floating-element,
+.parallax-flowers,
+.decorative-element {
+    display: none !important;
+}
+
+/* Clean up any remaining floating animations */
+@keyframes float {
+    0%, 100% { transform: none; }
+    50% { transform: none; }
+}
+
+/* Remove unnecessary particle effects */
+.particles-js-canvas-el {
+    display: none !important;
+}
+
+/* Clean background */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('../images/hero-bg.jpg') center/cover;
+    overflow: hidden;
+}
+
+/* Remove floating animations from elements */
+.section-title,
+.hero-content,
+.countdown-item,
+.quick-link-card {
+    animation: none !important;
+    transform: none !important;
+}
+
+/* Clean up any remaining floating styles */
+[class*="float-"],
+[class*="floating-"] {
+    animation: none !important;
+    transform: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: var(--shadow-md);
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .countdown {
+        gap: 1rem;
+    }
+
+    .countdown-item {
+        min-width: 80px;
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --section-spacing: 60px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .timeline::after {
+        left: 31px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0;
+    }
+
+    .social-links {
+        justify-content: center;
+        margin-top: 2rem;
+    }
+}
+
+/* Utility Classes */
+.text-gradient {
+    background: var(--gradient-romantic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient {
+    background: var(--gradient-romantic);
+}
+
+.shadow-hover {
+    transition: all var(--transition-fast);
+}
+
+.shadow-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+} 

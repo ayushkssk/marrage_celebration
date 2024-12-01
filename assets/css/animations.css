@@ -1,0 +1,39 @@
+/* Fade In Animations */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.fade-in-delay {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 0.5s;
+}
+
+.fade-in-delay-2 {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Falling Petals Animation */
+.petal {
+    position: absolute;
+    background-image: url('../images/petal.png');
+    background-size: contain;
+    pointer-events: none;
+}
+
+@keyframes falling {
+    0% {
+        transform: translate(0, -10%) rotate(0deg);
+    }
+    100% {
+        transform: translate(100px, 100vh) rotate(360deg);
+    }
+} 
